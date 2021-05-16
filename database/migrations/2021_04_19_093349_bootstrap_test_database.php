@@ -1,25 +1,24 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class BootstrapTestDatabase extends Migration
-{
+class BootstrapTestDatabase extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('events', function($table) {
+    public function up() {
+        Schema::create('events', function ($table) {
+            $table->engine = "InnoDB";
             $table->increments('id');
             $table->string('name');
             $table->timestamps();
         });
 
-        Schema::create('workshops', function($table) {
+        Schema::create('workshops', function ($table) {
+            $table->engine = "InnoDB";
             $table->increments('id');
             $table->dateTime('start');
             $table->dateTime('end');
@@ -29,7 +28,8 @@ class BootstrapTestDatabase extends Migration
             $table->timestamps();
         });
 
-        Schema::create('menu_items', function($table) {
+        Schema::create('menu_items', function ($table) {
+            $table->engine = "InnoDB";
             $table->increments('id');
             $table->string('name');
             $table->string('url');
@@ -44,8 +44,7 @@ class BootstrapTestDatabase extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         //
     }
 }
