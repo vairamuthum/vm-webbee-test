@@ -95,7 +95,7 @@ class EventsController extends BaseController {
 
         $events = Event::with('workshops')->get()->toJson();
         echo $events;die;
-        // throw new \Exception('implement in coding task 1');
+        throw new \Exception('implement in coding task 1');
     }
 
     /*
@@ -173,6 +173,8 @@ class EventsController extends BaseController {
      */
 
     public function getFutureEventsWithWorkshops() {
+        $events = Event::with('futureWorkshops')->has('futureWorkshops')->get()->toJson();
+        echo $events;die;
         throw new \Exception('implement in coding task 2');
     }
 }
